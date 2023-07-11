@@ -15,6 +15,12 @@ type Transport struct {
 	Client *sendgrid.Client
 }
 
+func NewTransport(apiKey string) *Transport {
+	return &Transport{
+		Client: sendgrid.NewSendClient(apiKey),
+	}
+}
+
 func (t *Transport) Send(email mailer.Email) (*mailer.SentMessage, error) {
 	var replyTo *mail.Email
 	if len(email.ReplyTo) > 0 {

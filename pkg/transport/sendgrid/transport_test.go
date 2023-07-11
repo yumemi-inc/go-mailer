@@ -5,7 +5,6 @@ import (
 	"os"
 	"testing"
 
-	"github.com/sendgrid/sendgrid-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
@@ -14,9 +13,7 @@ import (
 )
 
 func TestTransport_Send(t *testing.T) {
-	transport := Transport{
-		Client: sendgrid.NewSendClient(os.Getenv("SENDGRID_API_KEY")),
-	}
+	transport := NewTransport(os.Getenv("SENDGRID_API_KEY"))
 
 	email := mailer.Email{
 		Subject: "Testing SendGrid email transport",
