@@ -78,7 +78,7 @@ func (t *Transport) Send(email mailer.Email) (*mailer.SentMessage, error) {
 	}
 
 	return &mailer.SentMessage{
-		ID:       response.Headers["x-message-id"][0],
+		ID:       response.Headers["X-Message-Id"][0],
 		Original: email,
 	}, nil
 }
