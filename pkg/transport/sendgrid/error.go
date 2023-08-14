@@ -15,7 +15,7 @@ func (e *Error) Error() string {
 }
 
 type ErrorResponse struct {
-	Errors []Error `json:"error"`
+	Errors []Error `json:"errors"`
 }
 
 func (e *ErrorResponse) Error() string {
